@@ -41,14 +41,11 @@ void printMemoryUsage() {
 int main()
 {
     printf("Hello World!\n");
-    printMemoryUsage();
-    getchar();
+    
     allocateMagicTables();
     printf("Allocated magic tables, rooks: %d\n", sizeof(RookMoves));
-    printMemoryUsage();
-    getchar();
+    
     freeMagicTables();
     printf("Freed all memory.\n");
-    printMemoryUsage();
     getchar();
 }
