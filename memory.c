@@ -1,4 +1,5 @@
 #include "headers/memory.h"
+#include "headers/MovePreGen.h"
 #include <stdio.h>
 
 Bitboard** RookMoves;
@@ -9,23 +10,22 @@ void allocateMagicTables()
     RookMoves = (Bitboard**) malloc(BOARD_SIZE * sizeof(Bitboard*));
     BishopMoves = (Bitboard**) malloc(BOARD_SIZE * sizeof(Bitboard*));
 
-    for(short i = 0; i < BOARD_SIZE; ++i)
+    for(byte i = 0; i < BOARD_SIZE; ++i)
     {
         RookMoves[i] = (Bitboard*) malloc(RookArraySizes[i] * sizeof(Bitboard));
         BishopMoves[i] = (Bitboard*) malloc(BishopArraySizes[i] * sizeof(Bitboard));
     }
-
-    printf("method allocate called");
+    printf("Allocated all precomputed magic tables\n");
 }
 
 void freeMagicTables()
 {
-    for(short i = 0; i < BOARD_SIZE; ++i)
+    for(byte i = 0; i < BOARD_SIZE; ++i)
     {
         free(RookMoves[i]);
         free(BishopMoves[i]);
     }
     free(RookMoves);
     free(BishopMoves);
-    printf("method free called");
+    printf("Freed all precomputed magic tables\n");
 }

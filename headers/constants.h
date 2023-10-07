@@ -13,8 +13,10 @@
 */
 
 typedef unsigned long long Bitboard;
+typedef unsigned char byte;
+typedef signed char sbyte;
 
-static short RookBits[64] = {
+static byte RookBits[64] = {
     12, 11, 11, 11, 11, 11, 11, 12,
     11, 10, 10, 10, 10, 10, 10, 11,
     11, 10, 10, 10, 10, 10, 10, 11,
@@ -24,6 +26,7 @@ static short RookBits[64] = {
     11, 10, 10, 10, 10, 10, 10, 11,
     12, 11, 11, 11, 11, 11, 11, 12,
 };
+// Needed here because of malloc in memory.c
 static short RookArraySizes[64] = {
     4096, 2048, 2048, 2048, 2048, 2048, 2048, 4096,
     2048, 1024, 1024, 1024, 1024, 1024, 1024, 2048,
@@ -35,7 +38,7 @@ static short RookArraySizes[64] = {
     4096, 2048, 2048, 2048, 2048, 2048, 2048, 4096,
 };
 
-static short BishopBits[64] = {
+static byte BishopBits[64] = {
     6, 5, 5, 5, 5, 5, 5, 6,
     5, 5, 5, 5, 5, 5, 5, 5,
     5, 5, 7, 7, 7, 7, 5, 5,

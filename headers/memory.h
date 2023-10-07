@@ -6,8 +6,10 @@
 
 extern Bitboard** RookMoves;
 extern Bitboard** BishopMoves;
-extern Bitboard KnightMoves[64];
-extern Bitboard KingMoves[64];
+static Bitboard KnightMoves[64];
+static Bitboard KingMoves[64];
+static Bitboard RookFullBlockerMasks[64];
+static Bitboard BishopFullBlockerMasks[64];
 
 extern void allocateMagicTables();
 extern void freeMagicTables();

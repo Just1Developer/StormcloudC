@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include "headers/memory.h"
+#include "headers/MovePreGen.h"
 
 // for error undefined reference to WinMain
 #define NOMINMAX
 #include <windows.h>
 
 
-/* GPT4 Generated
+/** GPT4 Generated
 #include <psapi.h>
 // Link against Psapi.lib
 #pragma comment(lib, "psapi.lib")
@@ -45,7 +46,10 @@ int main()
     allocateMagicTables();
     printf("Allocated magic tables, rooks: %d\n", sizeof(RookMoves));
     
+    // Pre-Generate moves:
+    PreGenerateAllPossibleMoves();
+
     freeMagicTables();
     printf("Freed all memory.\n");
-    getchar();
+    //getchar();
 }
