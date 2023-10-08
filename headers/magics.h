@@ -1,7 +1,7 @@
 #ifndef MAGICS_H
 #define MAGICS_H
 
-#include "constants.h"
+#include "types.h"
 
 Bitboard RookMagics[64] = {
     0x8000c004201382ULL,		// size: 4096

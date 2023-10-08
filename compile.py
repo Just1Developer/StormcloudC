@@ -47,5 +47,6 @@ if result.returncode == 0:
 else:
     print(f"{TerminalColors.FAIL}Compiling failed, see above for more information{TerminalColors.ENDC}")
 
-print("Press enter to close window")
-input()
+os.system("pause")
+#print("Press enter to close window")
+#input()

@@ -2,7 +2,7 @@
 #define MEMORY_H
 
 #include <stdlib.h>
-#include "constants.h"
+#include "types.h"
 
 extern Bitboard** RookMoves;
 extern Bitboard** BishopMoves;

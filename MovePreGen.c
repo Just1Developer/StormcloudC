@@ -1,7 +1,9 @@
 #include <stdio.h>
+
 #include "headers/MovePreGen.h"
 #include "headers/movegen.h"
 #include "headers/helpers.h"
+#include "headers/arrayhelpers.h"
 
 #pragma region Mask-Gen Code
 
@@ -130,12 +132,13 @@ void PreGenerateAllPossibleMoves()
 
     // Sliding Pieces
     PreGenerateAllLegalRookMoves();
-    //PreGenerateAllLegalBishopMoves();
+    PreGenerateAllLegalBishopMoves();
+    printf("Done.\n");
 }
 
 static void PreGenerateAllLegalKingMoves()
 {
-    printf("Pre-generating all possible King moves\n");
+    // printf("Pre-generating all possible King moves\n");
 
     for(byte square = 0; square < 64; square++)
     {
@@ -155,12 +158,11 @@ static void PreGenerateAllLegalKingMoves()
         if (file != 0) KingMoves[square] |= 1UL << (square - 1);
         if (file != 7) KingMoves[square] |= 1UL << (square + 1);
     }
-    printf("Done.\n");
 }
 
 static void PreGenerateAllLegalKnightMoves()
 {
-    printf("Pre-generating all possible Knight moves\n");
+    // printf("Pre-generating all possible Knight moves\n");
     
     for(byte square = 0; square < 64; square++)
     {
@@ -186,50 +188,46 @@ static void PreGenerateAllLegalKnightMoves()
                 if (file != 7) KnightMoves[square] |= 1UL << (square + 17);
             }
         }
+        Bitboard s;
+        printf("%d", *((int*)NULL));
     }
-    printf("Done.\n");
 }
 
 static void PreGenerateAllLegalRookMoves()
 {
-    printf("Pre-generating all possible Rook moves\n");
+    // printf("Pre-generating all possible Rook moves\n");
 
     for(byte square = 0; square < 64; square++)
     {
         // Memory already allocated in memory.c
-        Bitboard* moves = RookMoves[square]; //(Bitboard*) malloc(RookArraySizes[square] * sizeof(Bitboard));
+        Bitboard* moves = RookMoves[square];
         Bitboard mask = RookMask(square);
         RookFullBlockerMasks[square] = mask;
         int maxCount = Count_1s(mask);
         Bitboard* allBlockers = (Bitboard*) GetAllBlockerPositions(mask, maxCount);
 
-        for(short block = 0; block < (1 << maxCount); block++)
+        for(short block = 0; block < RookArraySizes[square]; block++)
         {
             byte hash = TranslateRook(square, allBlockers[block]);
             moves[hash] = RookAttacks(square, allBlockers[block]);
         }
-
-        //RookMoves[square] = moves;
         free(allBlockers);
-        // Dont free() moves, obviously
     }
-    printf("Done.\n");
 }
 
 static void PreGenerateAllLegalBishopMoves()
 {
-    printf("Pre-generating all possible Bishop moves\n");
+    // printf("Pre-generating all possible Bishop moves\n");
 
     for(byte square = 0; square < 64; square++)
     {
-        // Memory already allocated (/freed) in memory.c
-        Bitboard* moves = BishopMoves[square]; //(Bitboard*) malloc(BishopArraySizes[square] * sizeof(Bitboard));
+        Bitboard* moves = BishopMoves[square];
         Bitboard mask = BishopMask(square);
         BishopFullBlockerMasks[square] = mask;
         int maxCount = Count_1s(mask);
         Bitboard* allBlockers = (Bitboard*) GetAllBlockerPositions(mask, maxCount);
 
-        for(short block = 0; block < (1 << maxCount); block++)
+        for(short block = 0; block < BishopArraySizes[square]; block++)
         {
             byte hash = TranslateBishop(square, allBlockers[block]);
             moves[hash] = BishopAttacks(square, allBlockers[block]);
@@ -237,5 +235,4 @@ static void PreGenerateAllLegalBishopMoves()
 
         free(allBlockers);
     }
-    printf("Done.\n");
 }

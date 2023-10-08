@@ -51,5 +51,5 @@ int main()
 
     freeMagicTables();
     printf("Freed all memory.\n");
-    //getchar();
+    getchar();
 }

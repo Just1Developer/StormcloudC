@@ -1,6 +1,8 @@
+#include <stdio.h>
+
+#include "headers/arrayhelpers.h"
 #include "headers/memory.h"
 #include "headers/MovePreGen.h"
-#include <stdio.h>
 
 Bitboard** RookMoves;
 Bitboard** BishopMoves;

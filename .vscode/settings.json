@@ -2,6 +2,12 @@
     "files.associations": {
         "memory.h": "c",
         "movegen.h": "c",
-        "movepregen.h": "c"
+        "movepregen.h": "c",
+        "constants.h": "c",
+        "helpers.h": "c",
+        "movegeneration.h": "c",
+        "arrayhelpers.h": "c",
+        "types.h": "c",
+        "stdio.h": "c"
     }
 }
