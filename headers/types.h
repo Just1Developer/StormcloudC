@@ -15,9 +15,18 @@
 #define GET_RANK_OF_SQUARE (x) (x & BITMASK_FILE)
 */
 
+#define true 1
+#define false 0
+#define NOT(x) ((x) == true ? false : true)
+
+#define Infinity (double)9999999999
+#define NegativeInfinity (double)-9999999999
+
 typedef unsigned long long Bitboard;
 typedef unsigned short ushort;
 typedef unsigned char byte;
 typedef signed char sbyte;
+typedef char* string;
+typedef byte bool;
 
 #endif

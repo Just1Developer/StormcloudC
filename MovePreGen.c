@@ -188,8 +188,6 @@ static void PreGenerateAllLegalKnightMoves()
                 if (file != 7) KnightMoves[square] |= 1UL << (square + 17);
             }
         }
-        Bitboard s;
-        printf("%d", *((int*)NULL));
     }
 }
 

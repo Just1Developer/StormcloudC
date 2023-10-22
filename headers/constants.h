@@ -67,4 +67,23 @@
 #define CASTLE_TO_SQUARE_KING_INDEX_KINGSIDE_BLACK 57
 #define CASTLE_TO_SQUARE_KING_INDEX_QUEENSIDE_BLACK 61
 
+// Castle masks
+static Bitboard CASTLE_XOR_MASKS_KING[4] = {	// Index = Move Data - 0b1001 since 0b1001 = 0
+    0x000000000000000A,	// White castle Kingside, 0000 1010
+    0x0000000000000028,	// White caslte Queenside, 0010 1000
+    0x0A00000000000000, // Black castle Kingside, 0000 1010
+    0x2800000000000000	// Black castle Queenside, 0010 1000
+};
+
+static Bitboard CASTLE_XOR_MASKS_ROOK[4] = {	// Index = Move Data - 0b1001 since 0b1001 = 0, so Move Data - 9
+    0x0000000000000005,	// White castle Kingside, 0000 0101
+    0x0000000000000090,	// White caslte Queenside, 1001 0000
+    0x0500000000000000, // Black castle Kingside, 0000 0101
+    0x9000000000000000	// Black castle Queenside, 1001 0000
+};
+
+// Values
+
+#define ALGORITHM_CONSTANT_KING_CAPTUREVALUE 999999999
+
 #endif

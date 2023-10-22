@@ -516,8 +516,9 @@ void PackKingMoves_CapturesOnly(Bitboard* CurrentPieces, Bitboard* myBitboards, 
 /// This region servers for capture only move generations
 /// byte GenerateAllMoves_CapturesOnly(Bitboard* myBitboards, Bitboard* opponentBitboards, ushort* moves, int isWhite)
 /// => GenerateAllMoves_CapturesOnly(myBitboards, opponentBitboards, myBitboards[INDEX_FULL_BITBOARD] | opponentBitboards[INDEX_FULL_BITBOARD], moves, isWhite);
-byte GenerateAllMoves_CapturesOnly(Bitboard* myBitboards, Bitboard* opponentBitboards, Bitboard CompleteGamestate, ushort* moves, int isWhite)
+byte GenerateAllMoves_CapturesOnly(Bitboard* myBitboards, Bitboard* opponentBitboards, ushort* moves, bool isWhite)
 {
+	Bitboard CompleteGamestate = myBitboards[INDEX_FULL_BITBOARD] | opponentBitboards[INDEX_FULL_BITBOARD];
 	Bitboard myBitboardInverted = ~myBitboards[INDEX_FULL_BITBOARD];
 	byte move = 0;
 
@@ -560,8 +561,9 @@ byte GenerateAllMoves_CapturesOnly(Bitboard* myBitboards, Bitboard* opponentBitb
 ///{
 ///	return GenerateAllMoves(myBitboards, opponentBitboards, myBitboards[INDEX_FULL_BITBOARD] | opponentBitboards[INDEX_FULL_BITBOARD], moves, isWhite);
 ///}
-byte GenerateAllMoves(Bitboard* myBitboards, Bitboard* opponentBitboards, Bitboard CompleteGamestate, ushort* moves, int isWhite)
+byte GenerateAllMoves(Bitboard* myBitboards, Bitboard* opponentBitboards, ushort* moves, bool isWhite)
 {
+	Bitboard CompleteGamestate = myBitboards[INDEX_FULL_BITBOARD] | opponentBitboards[INDEX_FULL_BITBOARD];
 	Bitboard myBitboardInverted = ~myBitboards[INDEX_FULL_BITBOARD];
 	byte move = 0;
 	

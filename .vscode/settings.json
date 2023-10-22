@@ -8,6 +8,8 @@
         "movegeneration.h": "c",
         "arrayhelpers.h": "c",
         "types.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "string.h": "c",
+        "search.h": "c"
     }
 }
