@@ -8,6 +8,8 @@ import atexit
 # If You Want All Warnings:
 ShowAllWarnings = False
 
+# Todo: Make argument for no-color (CLion IDE Console Bugs)
+
 class TerminalColors:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
