@@ -19,12 +19,12 @@ int TranslateBishop(byte square, Bitboard BlockerBitboard)
 
 Bitboard GetKnightMoves(byte fromSquare, Bitboard myBitboardInverted)
 {
-    return KingMoves[fromSquare] & myBitboardInverted;
+    return KnightMoves[fromSquare] & myBitboardInverted;
 }
 
 Bitboard GetKingMoves(byte fromSquare, Bitboard myBitboardInverted)
 {
-    return KnightMoves[fromSquare] & myBitboardInverted;
+    return KingMoves[fromSquare] & myBitboardInverted;
 }
 
 Bitboard GetQueenMoves(byte fromSquare, Bitboard myBitboardInverted, Bitboard CompleteGamestate)

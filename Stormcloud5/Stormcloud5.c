@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "h/memory.h"
-#include "h/MovePreGen.h"
+#include "headers/memory.h"
+#include "headers/MovePreGen.h"
 
 #ifdef _WIN32
 // for error undefined reference to WinMain
